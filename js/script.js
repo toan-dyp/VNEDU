@@ -50,7 +50,7 @@ $("#tai").click(async()=>{
   $('#tai').prop('disabled', true);
   await lay_thong_tin();
   console.log(HocKy);
-  $('#sh').removeClass('invisible');
+  $('#sh').removeClass('d-none');
   $("#lding").addClass("d-none");
   $("#done").removeClass("d-none");
   await sleep(500);
@@ -74,6 +74,7 @@ $("#lop").change(()=>{
 //==============================
 
 $("#action").click(()=>{
+  $("#TENMON").text("");
   var hocky = $('#hocky').val();
   var loai  = $('#loai').val(), mon = 0;
   var lop   = $('#lop').val(), 
@@ -144,6 +145,7 @@ $("#action").click(()=>{
       var d = (isNaN(b.hocba[mon].dtb)?0:b.hocba[mon].dtb);
       return d - c;
     })
+    $("#TENMON").text(HocKy[hocky][0].hocba[mon].ten);
     $("#p").empty();
     $("#p").append(`<table class="table">
       <thead>
@@ -151,7 +153,6 @@ $("#action").click(()=>{
           <th scope="col">#</th>
           <th scope="col">Tên</th>
           <th scope="col">Lớp</th>
-          <th scope="col">TenMon</th>
           <th scope="col">Thường xuyên</th>
           <th scope="col">GK</th>
           <th scope="col">CK</th>
@@ -174,7 +175,6 @@ $("#action").click(()=>{
           <th scope="row">${check}</th>
           <td><a href="${value.url}">${value.ten}</a></td>
           <td>${value.lop}</td>
-          <td>${value.hocba[mon].ten}</td>
           <td>${value.hocba[mon].tx}</td>
           <td>${value.hocba[mon].gk}</td>
           <td>${value.hocba[mon].ck}</td>

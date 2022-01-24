@@ -56,9 +56,17 @@
   </div>
   <nav class="navbar sticky-top navbar-dark bg-dark">
     <div class="container-fluid">
-      <button id="sh" class="navbar-toggler invisible" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <div class = "d-flex">
+        <button id="sh" class="navbar-toggler d-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>&nbsp&nbsp
+        <ul class="navbar-nav ml-2">
+          <li class="nav-item">
+            <b><a id="TENMON" class="nav-link active" aria-current="page" href="#"></a></b>
+          </li>
+        </ul>
+      </div>
+      
       <form class="d-flex">
         <button id="tai" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
           Tải danh sách điểm VNEDU
