@@ -74,6 +74,7 @@ $("#lop").change(()=>{
 //==============================
 
 $("#action").click(()=>{
+  $("#closeoff").click();
   $("#TENMON").text("");
   var hocky = $('#hocky').val();
   var loai  = $('#loai').val(), mon = 0;
@@ -130,7 +131,7 @@ $("#action").click(()=>{
         check++;
         $("#ne").append(`<tr>
           <th scope="row">${check}</th>
-          <td><a href="${value.url}">${value.ten}</a></td>
+          <td><a href="#" onclick="mohocba('${value.url}'); return false;">${value.ten}</a></td>
           <td>${value.lop}</td>
           <td>${(isNaN(value.dtb)?"":value.dtb)}</td>
           <td>${hang}</td>
@@ -173,7 +174,7 @@ $("#action").click(()=>{
         check++;
         $("#ne").append(`<tr>
           <th scope="row">${check}</th>
-          <td><a href="${value.url}">${value.ten}</a></td>
+          <td><a href="#" onclick="mohocba('${value.url}'); return false;">${value.ten}</a></td>
           <td>${value.lop}</td>
           <td>${value.hocba[mon].tx}</td>
           <td>${value.hocba[mon].gk}</td>
@@ -186,3 +187,11 @@ $("#action").click(()=>{
     })
   }
 })
+
+function mohocba(url){
+  $("#dayne").empty();
+  $("#dayne").append(`
+  <iframe style="overflow: hidden;" scrolling="no" width="100%" height="99%" src="${url}" ></iframe>
+  `);
+  $("#clickdayne").click()
+}

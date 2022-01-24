@@ -15,7 +15,7 @@
   <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasExampleLabel">Bộ lọc</h5>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <button id="closeoff" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
       <form>
@@ -52,6 +52,17 @@
           <button id="action" class="btn btn-secondary" type="button">Thực hiện</button>
         </div>
       </form>    
+    </div>
+  </div>
+  <button id="clickdayne" class="btn btn-primary d-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></button>
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="TenHocSinh">
+    <div class="offcanvas-header">
+      <h5 id="TenHocSinh">Học bạ</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div id="dayne" class="offcanvas-body" style="overflow:hidden">
+      <iframe style="overflow: hidden;" scrolling="no" width="100%" height="99%" src="https://s17.vnedu.vn/v3/?call=app.mobile.hocsinh.getSLLView&app_truong_id=347486812&session_id=659cc903-4ff8-4cc9-86f6-6aae0f0f68f3&device_id=5d0b76c9-168d-3b4c-822c-f658642dac88&token=b979f67bc0e674e8b654e3ed760eecd1&hoc_sinh_id=1885039386&lop_hoc_id=2621940865" ></iframe>
     </div>
   </div>
   <nav class="navbar sticky-top navbar-dark bg-dark">
