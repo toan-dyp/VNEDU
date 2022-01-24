@@ -25,7 +25,7 @@ var lay_danh_sach = async (hocky) => {
         var html = stringToHTML(value).querySelectorAll("tr b");
         var ten = html[0].innerHTML, lop = html[1].innerHTML;
         var value = stringToHTML(data[index]).querySelectorAll("table")[1];
-        temp.push(new Hoc_sinh(ten, Lop12[index], lop, value));
+        temp.push(new Hoc_sinh(ten, Lop12[index] + `&hoc_ky_id=${hocky}`, lop, value));
       }
     })
   })
@@ -72,6 +72,7 @@ $("#lop").change(()=>{
 })
 
 //==============================
+var OO=['I','II'];
 
 $("#action").click(()=>{
   $("#closeoff").click();
@@ -111,10 +112,9 @@ $("#action").click(()=>{
     $("#p").append(`<table class="table">
       <thead>
         <tr>
-          <th scope="col">#</th>
           <th scope="col">Tên</th>
           <th scope="col">Lớp</th>
-          <th scope="col">ĐTB HKI</th>
+          <th scope="col">ĐTB HK${OO[hocky]}</th>
           <th scope="col">Hạng</th>
         </tr>
       </thead>
@@ -130,7 +130,6 @@ $("#action").click(()=>{
         }
         check++;
         $("#ne").append(`<tr>
-          <th scope="row">${check}</th>
           <td><a href="#" onclick="mohocba('${value.url}'); return false;">${value.ten}</a></td>
           <td>${value.lop}</td>
           <td>${(isNaN(value.dtb)?"":value.dtb)}</td>
@@ -151,13 +150,12 @@ $("#action").click(()=>{
     $("#p").append(`<table class="table">
       <thead>
         <tr>
-          <th scope="col">#</th>
           <th scope="col">Tên</th>
           <th scope="col">Lớp</th>
           <th scope="col">Thường xuyên</th>
           <th scope="col">GK</th>
           <th scope="col">CK</th>
-          <th scope="col">TBM</th>
+          <th scope="col">TBM HK${OO[hocky]}</th>
           <th scope="col">Hạng</th>
         </tr>
       </thead>
