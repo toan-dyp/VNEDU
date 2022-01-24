@@ -16,3 +16,7 @@
   color: #198754;
   background-color: #ffffff;
 }
+
+.sticky{
+  position: sticky;
+}

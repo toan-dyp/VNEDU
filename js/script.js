@@ -109,9 +109,9 @@ $("#action").click(()=>{
       return d - c;
     })
     $("#p").empty();
-    $("#p").append(`<table class="table">
+    $("#p").append(`<table class="table sticky-header">
       <thead>
-        <tr>
+        <tr style="background:white">
           <th scope="col">Tên</th>
           <th scope="col">Lớp</th>
           <th scope="col">ĐTB HK${OO[hocky]}</th>
@@ -121,6 +121,8 @@ $("#action").click(()=>{
       <tbody id = "ne">
       </tbody>
     </table>`);
+
+    $(".sticky-header").floatThead({top:50});
     var hang = 1, tam = 1, diem_nguoi_truoc = -1, check = 0;
     HocKy[hocky].forEach((value) =>{
       if(tunglop[value.lop] == 1 || lop == 0){
@@ -147,9 +149,9 @@ $("#action").click(()=>{
     })
     $("#TENMON").text(HocKy[hocky][0].hocba[mon].ten);
     $("#p").empty();
-    $("#p").append(`<table class="table">
+    $("#p").append(`<table class="table sticky-header">
       <thead>
-        <tr>
+        <tr style="background:white">
           <th scope="col">Tên</th>
           <th scope="col">Lớp</th>
           <th scope="col">Thường xuyên</th>
@@ -162,6 +164,7 @@ $("#action").click(()=>{
       <tbody id = "ne">
       </tbody>
     </table>`);
+    $(".sticky-header").floatThead({top:50});
     var hang = 1, tam = 1, diem_nguoi_truoc = -1, check = 0;
     HocKy[hocky].forEach((value) =>{
       if(tunglop[value.lop] == 1 || lop == 0){
