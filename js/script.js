@@ -174,7 +174,6 @@ $("#action").click(()=>{
         }
         check++;
         $("#ne").append(`<tr>
-          <th scope="row">${check}</th>
           <td><a href="#" onclick="mohocba('${value.url}'); return false;">${value.ten}</a></td>
           <td>${value.lop}</td>
           <td>${value.hocba[mon].tx}</td>
