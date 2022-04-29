@@ -17,11 +17,11 @@ class MonHoc {
 }
 
 class Hoc_sinh {
-  constructor(ten, url, lop, hocba){
+  constructor(ten, url, lop, hocba, hocky){
     this.ten = ten;
     this.url = url;
     this.lop = lop;
-    this.hocba = this.lay_Hocba(hocba);
+    this.hocba = this.lay_Hocba(hocba, hocky);
   }
 
   lay_diem(v){
@@ -30,16 +30,18 @@ class Hoc_sinh {
     return temp.map(Number);
   }
   
-  lay_mon(value, i){
+  lay_mon(value, i, hocky){
     var mons = ["Toán", "Lý", "Hoá", "Sinh", "Tin", "Ngữ Văn", "Lịch Sử", "Địa lí", "Ngoại ngữ", "GDCD", "Công nghệ", "Thể dục", "GDQP"];
     var mon = value.querySelectorAll("tr");
-    return new MonHoc(mons[(i-2)/4], this.lay_diem(mon[i + 0]), this.lay_diem(mon[i + 1]), this.lay_diem(mon[i + 2]));
+    if(hocky != 0) return new MonHoc(mons[(i-2)/4], this.lay_diem(mon[i + 0]), this.lay_diem(mon[i + 1]), this.lay_diem(mon[i + 2]));
+    return new MonHoc(mons[i], this.lay_diem(mon[i+2]),  this.lay_diem(mon[i+2]),  this.lay_diem(mon[i+2]));
   }
 
-  lay_Hocba(value){
+  lay_Hocba(value, hocky){
     var mon = [];
     for(var i = 0; i < 13; i++){
-      mon.push(this.lay_mon(value, 2 + i*4));
+      if(hocky != 0) mon.push(this.lay_mon(value, 2 + i*4));
+      else mon.push(this.lay_mon(value, i, hocky));
     }
     return mon;
   }

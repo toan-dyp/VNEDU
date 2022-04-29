@@ -25,7 +25,7 @@ var lay_danh_sach = async (hocky) => {
         var html = stringToHTML(value).querySelectorAll("tr b");
         var ten = html[0].innerHTML, lop = html[1].innerHTML;
         var value = stringToHTML(data[index]).querySelectorAll("table")[1];
-        temp.push(new Hoc_sinh(ten, Lop12[index] + `&hoc_ky_id=${hocky}`, lop, value));
+        temp.push(new Hoc_sinh(ten, Lop12[index] + `&hoc_ky_id=${hocky}`, lop, value, hocky));
       }
     })
   })
@@ -36,6 +36,7 @@ var HocKy = [];
 
 async function lay_thong_tin(){
   HocKy = [
+    await lay_danh_sach(0),
     await lay_danh_sach(1),
     await lay_danh_sach(2),
   ]
@@ -61,6 +62,11 @@ $("#tai").click(async()=>{
   $("#lding").removeClass("d-none");
 })
 
+$("#hocky").change(()=>{
+  if($("#hocky").val() == 0) $(".loai_gr").addClass("d-none");
+  else $(".loai_gr").removeClass("d-none");
+})
+
 $("#loai").change(()=>{
   if($("#loai").val() == 0) $("#mon").addClass("d-none");
   else $("#mon").removeClass("d-none");
@@ -72,7 +78,7 @@ $("#lop").change(()=>{
 })
 
 //==============================
-var OO=['I','II'];
+var OO=["CẢ NĂM",'HKI','HKII'];
 
 $("#action").click(()=>{
   $("#closeoff").click();
@@ -114,7 +120,7 @@ $("#action").click(()=>{
         <tr style="background:white">
           <th scope="col">Tên</th>
           <th scope="col">Lớp</th>
-          <th scope="col">ĐTB HK${OO[hocky]}</th>
+          <th scope="col">ĐTB ${OO[hocky]}</th>
           <th scope="col">Hạng</th>
         </tr>
       </thead>
@@ -157,7 +163,7 @@ $("#action").click(()=>{
           <th scope="col">Thường xuyên</th>
           <th scope="col">GK</th>
           <th scope="col">CK</th>
-          <th scope="col">TBM HK${OO[hocky]}</th>
+          <th scope="col">TBM ${OO[hocky]}</th>
           <th scope="col">Hạng</th>
         </tr>
       </thead>
